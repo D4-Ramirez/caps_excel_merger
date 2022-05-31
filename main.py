@@ -1,4 +1,3 @@
-from statistics import mode
 import eel
 import wx
 import files as file

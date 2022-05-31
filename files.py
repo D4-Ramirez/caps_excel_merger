@@ -1,6 +1,3 @@
-from ctypes import sizeof
-from turtle import clear
-import numpy as np
 import merger as merge
 import pandas as pd
 

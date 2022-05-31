@@ -1,7 +1,4 @@
-from ctypes import sizeof
-import numpy as np
 import pandas as pd
-import xlrd
 
 
 def createLeftJoinFile(mainFilePath, addFilePath, on):
@@ -48,26 +45,3 @@ def renameFileColumns(file, columnName, newColumnName):
 
 def deleteFileRows(file, labels):
     file.drop(labels, axis=0, inplace=True)
-
-
-def dataFrameCreate(path):
-    # Give the location of the file
-    loc = (path)
-
-    # To open Workbook
-    wb = xlrd.open_workbook(loc)
-    sheet = wb.sheet_by_index(0)
-
-    cellsName = np.empty(sheet.ncols, dtype=object)
-
-    for i in range(sheet.ncols):
-        cellsName[i] = sheet.cell_value(0, i)
-
-    data = [[sheet.cell_value(r, c) for c in range(sheet.ncols)]
-            for r in range(sheet.nrows)]
-
-    del data[0]
-
-    df = pd.DataFrame(data, columns=cellsName, dtype=float)
-
-    return df
