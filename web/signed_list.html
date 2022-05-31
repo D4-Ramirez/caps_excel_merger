@@ -1,0 +1,166 @@
+<html>
+  <head>
+    <!-- Google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <!-- Material icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Main CSS template -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Preparacion archivos Excel</title>
+  </head>
+  <body>
+    <!-- Eel script -->
+    <script type="text/javascript" src="eel.js"></script>
+    <script>
+      function openFileReader() {
+        eel.readFile();
+      }
+
+      function tranformRegistrationLists() {
+        eel.mergeRegistrationList();
+      }
+    </script>
+    <div id="app" class="d-flex">
+      <!-- Sidebar -->
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper" class="bg-primary h-100">
+            <div class="sidebar">
+              <a href="index.html" class="text-light p-3 nav-link">
+                <div class="row">
+                  <div class="sidebar_icon col-3">
+                    <i class="material-icons"> home </i>
+                  </div>
+                  <div class="sidebar_title col-3">
+                    <span>Inicio</span>
+                  </div>
+                </div>
+              </a>
+              <a href="signed_list.html" class="text-light p-3 nav-link">
+                <div class="row">
+                  <div class="sidebar_icon col-3">
+                    <i class="material-icons"> verified </i>
+                  </div>
+                  <div class="sidebar_title col-3">
+                    <span>Inscritos</span>
+                  </div>
+                </div>
+              </a>
+              <a href="teams_list.html" class="text-light p-3 nav-link">
+                <div class="row">
+                  <div class="sidebar_icon col-3">
+                    <i class="material-icons"> laptop_windows </i>
+                  </div>
+                  <div class="sidebar_title col-3">
+                    <span>Teams</span>
+                  </div>
+                </div>
+              </a>
+              <a href="attendance_list.html" class="text-light p-3 nav-link">
+                <div class="row">
+                  <div class="sidebar_icon col-3">
+                    <i class="material-icons"> flag </i>
+                  </div>
+                  <div class="sidebar_title col-3">
+                    <span>Asistencia</span>
+                  </div>
+                </div>
+              </a>
+              <a href="satisfaction.html" class="text-light p-3 nav-link">
+                <div class="row">
+                  <div class="sidebar_icon col-3">
+                    <i class="material-icons"> view_headline </i>
+                  </div>
+                  <div class="sidebar_title col-3">
+                    <span>Satisfacción</span>
+                  </div>
+                </div>
+              </a>
+              <a href="final.html" class="text-light p-3 nav-link">
+                <div class="row">
+                  <div class="sidebar_icon col-3">
+                    <i class="material-icons"> receipt </i>
+                  </div>
+                  <div class="sidebar_title col-3">
+                    <span>Final</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </aside>
+      </div>
+      <!-- Body -->
+      <div class="main_content">
+        <h2>Inscritos</h2>
+        <h4>Pasos a seguir</h4>
+        <ol>
+          <li>
+            Dar click en el botón <em>"Subir fechas"</em> para subir el excel correspondiente a la lista de las fechas con su respectivo ID.
+            </br>
+            <div class="d-flex justify-content-center">
+              </br>
+              <button type="button" class="btn btn-dark" onclick="openFileReader()">
+                Subir fechas
+              </button>
+            </div>
+            </br>
+          </li>
+          <li>
+            Dar click en el botón <em>"Subir lista XIE"</em> para subir el excel correspondiente al XIE.
+            </br>
+            <div class="d-flex justify-content-center">
+              </br>
+              <button type="button" class="btn btn-dark" onclick="openFileReader()">
+                Subir lista XIE
+              </button>
+            </div>
+            </br>
+          </li>
+          <li>
+            Dar click en el botón <em>"Subir lista Forms" </em> para subir el excel del formulario correspondiente.
+            </br>
+            <div class="d-flex justify-content-center">
+              </br>
+              <button type="button" class="btn btn-dark" onclick="openFileReader()">
+                Subir lista Forms
+              </button>
+            </div>
+          </br>
+          </li>
+          <li>
+            Dar click en el botón "Transformar" para unir los documentos anteriormente seleccionados.
+            </br>
+            <div class="d-flex justify-content-center">
+              </br>
+              <button type="button" class="btn btn-dark" onclick="tranformRegistrationLists()">
+                Transformar
+              </button>
+            </div>
+            </br>
+          </li>
+          <li>
+            Finalmente, en la carpeta de <em>Descargas</em> podrá encontrar el archivo modificado.
+          </li>
+        </ol>      
+      </div>
+    </div>
+    <!-- General scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
