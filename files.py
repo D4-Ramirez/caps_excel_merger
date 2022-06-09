@@ -25,6 +25,7 @@ def prepareRegistrationList(xiePath, altPath, datePath):
     print("🟢 Transformed")
     return list
 
+
 def PrepareXieRegistrationList(list, dates):
     dateList = []
     list.dropna(subset=['Nombre Participante'], inplace=True)
@@ -33,8 +34,8 @@ def PrepareXieRegistrationList(list, dates):
             if j[1] == i:
                 dateList.append(j[0])
     list['Fecha'] = dateList
-        
-    
+
+
 def prepareAltRegistrationList(list, dates):
     dateList = []
     merge.renameFileColumns(list,
@@ -47,7 +48,6 @@ def prepareAltRegistrationList(list, dates):
             if j[1] == int(split[1]):
                 dateList.append(j[0])
     list['Fecha'] = dateList
-        
 
 
 def prepareFile(path, name):
@@ -92,6 +92,21 @@ def checkIfStudentAnsweredAttendanceForm(formList, registrationList):
     finalList.to_excel("final.xlsx")
 
 
+def checkIfStudentIsInXie(teamsList, register):
+    final = pd.read_excel("final.xlsx")
+    studentList = []
+    attendList = []
+    for i in teamsList['Correo Institucional'].tolist():
+        if i not in register['Correo Institucional'].tolist():
+            studentList.append(i)
+            attendList.append("No")
+        else:
+            attendList.append("Si")
+    pd.concat([final, pd.DataFrame(
+        {"Correo Institucional": studentList})], ignore_index=True)
+    final['Teams'] = attendList
+
+
 def finalMerge(registrationPath, teamsPath, attendancePath, satisfactionPath):
     registrationList = pd.read_excel(registrationPath)
     teamsList = pd.read_excel(teamsPath)
@@ -100,4 +115,5 @@ def finalMerge(registrationPath, teamsPath, attendancePath, satisfactionPath):
     checkIfStudentAttendedToTeams(teamsList, registrationList)
     checkIfStudentAnsweredAttendanceForm(attendanceList, registrationList)
     checkIfStudentAnsweredSatisfactionForm(satisfactionList, registrationList)
+    # checkIfStudentIsInXie(teamsList, registrationList)
     print("⚪ Merged")

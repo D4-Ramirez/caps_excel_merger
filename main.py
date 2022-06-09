@@ -1,3 +1,4 @@
+from statistics import mode
 import eel
 import wx
 import files as file
@@ -64,4 +65,7 @@ def finalTransform():
     array = []
     i = 0
 
-eel.start("index.html", size=(800, 600))
+try:
+    eel.start("index.html", mode='app', size=(800, 600), port=0)
+except EnvironmentError:
+    eel.start("index.html", mode='edge', size=(800, 600))
